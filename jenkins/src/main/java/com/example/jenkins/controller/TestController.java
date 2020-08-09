@@ -8,6 +8,6 @@ public class TestController {
 
     @RequestMapping("/test")
     public String tast(){
-        return "test-change";
+        return "test-change2";
     }
 }
