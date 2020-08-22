@@ -61,7 +61,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.home_dir}/demo-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${log.home_dir}/demo-all-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxFileSize>${log.maxFileSize}</maxFileSize>
             <maxHistory>${log.maxHistory}</maxHistory>
             <totalSizeCap>${log.totalSizeCap}</totalSizeCap>
