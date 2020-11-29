@@ -11,6 +11,17 @@
     <property name="log.maxFileSize" value="100MB" />
     <property name="log.totalSizeCap" value="20GB"/>
 
+    <!--日志写入logstash-->
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <destination>192.168.189.202:5054</destination>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
 
     <!--ConsoleAppender 控制台输出日志 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -75,6 +86,8 @@
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="ERROR"/>
         <appender-ref ref="INFO"/>
+        <appender-ref ref="logstash"/>
     </root>
+
 
 </configuration>
